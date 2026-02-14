@@ -82,23 +82,46 @@ void main() {
     String PacManYS = sc.nextLine();
     int pacManXI = Integer.parseInt(PacManXS);
     int pacManYI = Integer.parseInt(PacManYS);
-    if(tablero[pacManXI][pacManYI]==' '){
+
+    while (true){
         tablero[pacManXI][pacManYI]='<';
+        for(int i=0; i<columnas+2; i++){
+            IO.print("_");
+        }
+        IO.println("");
+        for(int i=0; i<columnas; i++){
+            IO.print("|");
+            for(int j=0; j<filas; j++){
+                IO.print(tablero[i][j]);
+            }
+            IO.println("|");
+        }
+        for(int i=0; i<columnas+2; i++){
+            IO.print("_");
+        }
+        IO.println("");
+        String lectura = sc.next();
+        tablero[pacManXI][pacManYI]=' ';
+        if(lectura.equals("8")){// Arriba
+            pacManXI = pacManXI -1;
+        }else if(lectura.equals("5")){ // Abajo
+            pacManXI = pacManXI +1;
+        }else if(lectura.equals("6")){ // Derecha
+            pacManYI = pacManYI +1;
+        }else if(lectura.equals("4")){ // Izquierda
+            pacManYI = pacManYI -1;
+        }
+
+        if(pacManYI == -1){
+            pacManYI = filas -1;
+        }else if(pacManYI == filas){
+            pacManYI = 0;
+        }else if(pacManXI == -1){
+            pacManXI = columnas -1;
+        }else if(pacManXI == columnas){
+            pacManXI = 0;
+        }
     }
 
-    for(int i=0; i<columnas+2; i++){
-        IO.print("_");
-    }
-    IO.println("");
-    for(int i=0; i<columnas; i++){
-        IO.print("|");
-        for(int j=0; j<filas; j++){
-            IO.print(tablero[i][j]);
-        }
-        IO.println("|");
-    }
-    for(int i=0; i<columnas+2; i++){
-        IO.print("_");
-    }
 
 }
