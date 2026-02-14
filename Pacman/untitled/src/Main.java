@@ -82,8 +82,22 @@ void main() {
     String PacManYS = sc.nextLine();
     int pacManXI = Integer.parseInt(PacManXS);
     int pacManYI = Integer.parseInt(PacManYS);
+    int puntos = 0;
+    int vidas = 3;
 
-    while (true){
+    while (vidas > 0){
+        if(tablero[pacManXI][pacManYI]=='0'){
+            puntos = puntos + 10;
+        }else if(tablero[pacManXI][pacManYI]=='$'){
+            puntos = puntos + 15;
+        }else if(tablero[pacManXI][pacManYI]=='@'){
+            vidas = vidas - 1;
+        }
+        IO.print("Puntos: ");
+        IO.println(puntos);
+        IO.print("Vidas: ");
+        IO.println(vidas);
+
         tablero[pacManXI][pacManYI]='<';
         for(int i=0; i<columnas+2; i++){
             IO.print("_");
