@@ -1,5 +1,6 @@
 public class Personaje {
     private String name;
+    private String nickname;
     private String salud;
     private int latitud;
     private int longitud;
